@@ -53,6 +53,7 @@ namespace DebugUIAssets
     private void Update()
     {
       if (_children.Count == 0) return;
+      if (!_children[_index].IsMoveMenu()) return;
 
       if (Input.GetKeyDown(KeyCode.UpArrow))
         ChageIndex(false);

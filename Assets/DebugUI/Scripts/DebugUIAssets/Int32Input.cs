@@ -27,7 +27,6 @@ namespace DebugUIAssets
 
     protected override void OnUpdate()
     {
-      if (!IsSelect) return;
       if (IsRight())
         ChangeValue(true);
       if (IsLeft())
@@ -36,12 +35,11 @@ namespace DebugUIAssets
 
     void ChangeValue(bool is_add)
     {
-      int value = GetValue() + (is_add ? 1 : -1) * (GetKeyShift() ? _shift_delta : _delta);
+      int value = GetValue() + (is_add ? 1 : -1) * (IsShift() ? _shift_delta : _delta);
       SetText(value);
       SetValue(value);
     }
 
-    bool GetKeyShift() => Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-    void SetText(in int value) => text = $"{name}:{value}";
+    void SetText(in int value) => text = $"[V]{name}:{value}";
   }
 }

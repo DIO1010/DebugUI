@@ -55,7 +55,7 @@ namespace DebugUIAssets
 
     protected override void OnUpdate()
     {
-      if (IsSelect && IsDicision())
+      if (IsDicision())
       {
         OnClick();
       }

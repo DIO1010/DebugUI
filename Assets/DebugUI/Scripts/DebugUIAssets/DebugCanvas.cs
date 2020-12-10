@@ -24,6 +24,8 @@ namespace DebugUIAssets
     [SerializeField] GameObject _page = null;
     [SerializeField] GameObject _trans_page = null;
     [SerializeField] GameObject _int_32_input = null;
+    [SerializeField] GameObject _string_input = null;
+    [SerializeField] GameObject _no_args_action = null;
 
     void Init()
     {
@@ -65,12 +67,33 @@ namespace DebugUIAssets
       in Page current, 
       in string name,
       in Func<int> getter,
-      Action<int> setter,
+      in Action<int> setter,
       in int delta = Int32Input.DEFAULT_DELTA,
       in int shift_delta = Int32Input.DEFAULT_SHIFT_DELTA)
     {
       Int32Input input = Instantiate(_int_32_input).GetComponent<Int32Input>();
       input.Init(name, getter, setter, delta, shift_delta);
+      current.AddChild(input);
+    }
+
+    public void PushEditString(
+      in Page current,
+      in string name,
+      in Action<string> setter,
+      in string default_str)
+    {
+      StringInput input = Instantiate(_string_input).GetComponent<StringInput>();
+      input.Init(name, setter, default_str);
+      current.AddChild(input);
+    }
+
+    public void PushNoArgsAction(
+      in Page current,
+      in string name,
+      in Action action)
+    {
+      NoArgsAction input = Instantiate(_no_args_action).GetComponent<NoArgsAction>();
+      input.Init(name, action);
       current.AddChild(input);
     }
   }

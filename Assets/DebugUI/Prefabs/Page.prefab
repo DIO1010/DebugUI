@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2011086423130542509}
   - component: {fileID: 2011086423130542512}
   - component: {fileID: 2011086423130542513}
+  - component: {fileID: 8092457097466742520}
   m_Layer: 5
   m_Name: Page
   m_TagString: Untagged
@@ -208,3 +209,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _title: {fileID: 2011086421995867054}
+--- !u!114 &8092457097466742520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011086423130542507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1d1cd701b1e473fa46477c9377b376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+  UnSelectColor: {r: 0, g: 0, b: 0, a: 1}
+  SelectColor: {r: 1, g: 1, b: 1, a: 1}
