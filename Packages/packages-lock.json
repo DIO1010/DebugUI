@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.t-muranaga.debug-ui": {
+      "version": "file:DebugUI",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "3.2.5",
       "depth": 0,
