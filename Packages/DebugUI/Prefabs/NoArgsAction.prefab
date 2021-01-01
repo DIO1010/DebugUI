@@ -54,7 +54,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7820105675452448895}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff1d1cd701b1e473fa46477c9377b376, type: 3}
+  m_Script: {fileID: 11500000, guid: 04e1d60d09379438faa0da6b129f9bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -77,6 +77,6 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
   UnSelectColor: {r: 0, g: 0, b: 0, a: 1}
   SelectColor: {r: 1, g: 1, b: 1, a: 1}

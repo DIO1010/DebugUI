@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 using DebugUIAssets;
 
 namespace TMuranaga
@@ -15,12 +14,18 @@ namespace TMuranaga
       DebugCanvas.Instance.PushEditInt32(page, "test_filed", () => test_field, value => test_field = value);
       DebugCanvas.Instance.PushEditString(page, "test_str", value => test_str = value, test_str);
       DebugCanvas.Instance.PushNoArgsAction(page, "TestAction", TestAction);
+      DebugCanvas.Instance.PushNoArgsAction(page, "TestAction2", TestAction2);
       DebugCanvas.Instance.PushPrevTransPage(page);
     }
 
     void TestAction()
     {
       print("call test action");
+    }
+
+    void TestAction2()
+    {
+      print("call test action 2");
     }
   }
 }

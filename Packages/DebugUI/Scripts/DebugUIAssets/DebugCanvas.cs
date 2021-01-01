@@ -26,6 +26,9 @@ namespace DebugUIAssets
     [SerializeField] GameObject _int_32_input = null;
     [SerializeField] GameObject _string_input = null;
     [SerializeField] GameObject _no_args_action = null;
+    [SerializeField] GameObject _bool_toggle = null;
+
+    [SerializeField] GameObject _logger_text = null;
 
     void Init()
     {
@@ -33,6 +36,46 @@ namespace DebugUIAssets
       Root.Init(null);
       Root.Title = "root";
       Root.transform.SetParent(transform, false);
+      CreateLoggerPage();
+    }
+
+    void CreateLoggerPage()
+    {
+      LoggerText text = _logger_text
+        .GetComponentInChildren<LoggerText>();
+      LoggerAssets.Logger.System.OnCallback += text.AddText;
+
+      Page page = CreatePage("Logger");
+
+      // 表示・非表示
+      PushBoolToggle(
+          page,
+          "Show Logger",
+          () => _logger_text.activeSelf,
+          a => _logger_text.SetActive(a)
+        );
+      // 出力させるかどうか
+      PushBoolToggle(
+        page,
+        "Logger ouput",
+        () => LoggerAssets.Logger.System.isLog,
+        a => LoggerAssets.Logger.System.isLog = a
+        );
+      // スタックトレースを表示させるか
+      PushBoolToggle(
+        page,
+        "Add stack trace",
+        () => text.canShowTrace,
+        a => text.canShowTrace = a
+        );
+      // クリアボタン
+      PushNoArgsAction(
+        page,
+        "Clear Log Text",
+        text.Clear
+      );
+      // Prev page
+      PushPrevTransPage(page);
     }
 
     public Page Root { get; private set; } = null;
@@ -64,7 +107,7 @@ namespace DebugUIAssets
     }
 
     public void PushEditInt32(
-      in Page current, 
+      in Page current,
       in string name,
       in Func<int> getter,
       in Action<int> setter,
@@ -95,6 +138,17 @@ namespace DebugUIAssets
       NoArgsAction input = Instantiate(_no_args_action).GetComponent<NoArgsAction>();
       input.Init(name, action);
       current.AddChild(input);
+    }
+
+    public void PushBoolToggle(
+      in Page current,
+      in string name,
+      in Func<bool> getter,
+      in Action<bool> setter)
+    {
+      BoolToggle toggle = Instantiate(_bool_toggle).GetComponent<BoolToggle>();
+      toggle.Init(name, getter, setter);
+      current.AddChild(toggle);
     }
   }
 }

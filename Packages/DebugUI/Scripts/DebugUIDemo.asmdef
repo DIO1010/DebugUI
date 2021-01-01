@@ -1,7 +1,7 @@
 {
-    "name": "DebugUIAssets",
+    "name": "DebugUIDemo",
     "references": [
-        "GUID:40941691b92fc4ef6bfc781fb9d2f345"
+        "GUID:0780ec783fab94a45892a95a892d2742"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
